@@ -29,7 +29,7 @@ public class Employee {
 	private String address;
 	@OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
 	private List<Task> tasks;
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "EMPLOYEE_ROLES", joinColumns = {
 			@JoinColumn(name = "EMPLOYEE_EMAIL", referencedColumnName = "email") }, inverseJoinColumns = {
 					@JoinColumn(name = "ROLE_NAME", referencedColumnName = "name") })
