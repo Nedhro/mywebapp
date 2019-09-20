@@ -38,9 +38,9 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(String name, String email, String password, String address) {
-		this.name = name;
+	public Employee(String email, String name, String password, String address) {
 		this.email = email;
+		this.name = name;
 		this.password = password;
 		this.address = address;
 	}

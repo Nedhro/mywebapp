@@ -6,4 +6,6 @@ import com.scifisoft.MyWebApp.entities.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
 
+	Employee findByEmail(String email);
+
 }

@@ -37,9 +37,16 @@ public class EmployeeService {
 		employeeRepository.save(employee);
 	}
 
-//	public Employee findOne(String email) {
-//
-//		return employeeRepository.findOne(email);
-//	
+	public Employee findOne(String email) {
+		return employeeRepository.findByEmail(email);
+	}
+
+	public boolean isEmployeePresent(String email) {
+		Employee emp = employeeRepository.findByEmail(email);
+		if (emp != null)
+			return true;
+
+		return false;
+	}
 
 }
