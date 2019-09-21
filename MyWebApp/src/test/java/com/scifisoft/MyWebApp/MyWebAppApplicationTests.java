@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class MyWebAppApplicationTests {
 	@Autowired
 	private TaskService taskService;
 
+	@Before
 	public void initDb() {
 		{
 			Employee newEmployee = new Employee("testEmployee@gmail.com", "testEmployee", "123456", "Mohammadpur");
@@ -33,11 +35,13 @@ public class MyWebAppApplicationTests {
 		}
 		{
 			Employee newAdmin = new Employee("testAdmin@gmail.com", "testAdmin", "123456", "Mohammadpur");
-			employeeService.createEmployee(newAdmin);
+			employeeService.createAdmin(newAdmin);
 		}
-		Task empTask = new Task("03/01/2019", "00:11", "11:00", "You need to work today");
-		Employee employee = employeeService.findOne("testEmployee@gmail.com");
-		taskService.addTask(empTask, employee);
+		{
+			Task empTask = new Task("03/01/2019", "00:11", "11:00", "You need to work today");
+			Employee employee = employeeService.findOne("testEmployee@gmail.com");
+			taskService.addTask(empTask, employee);
+		}
 	}
 
 	@Test
@@ -54,8 +58,5 @@ public class MyWebAppApplicationTests {
 		Employee admin = employeeService.findOne("testAdmin@gmail.com");
 		assertEquals(admin.getEmail(), "testAdmin@gmail.com");
 	}
-//	@Test
-//	public void contextLoads() {
-//	}
 
 }

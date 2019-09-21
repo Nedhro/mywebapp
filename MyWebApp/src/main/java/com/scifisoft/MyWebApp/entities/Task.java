@@ -22,7 +22,7 @@ public class Task {
 	@NotEmpty
 	private String description;
 	@ManyToOne
-	@JoinColumn(name = "EMPLOYEE_EMAIL")
+	@JoinColumn(name = "EMAIL")
 	private Employee employees;
 
 	public Task() {
