@@ -9,13 +9,13 @@
  <script th:src="@{webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
  
+ 
 </head>
 <body>
 	<div th:replace="fragments/header::header"></div>
-	<div layout:fragments="content">
-	
+	<div layout:fragment="content">
 	</div>
-	<div th:replace="fragments/footer::footer"></div>
 
+	<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>
